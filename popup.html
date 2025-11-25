@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Saver</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Memory Saver</h1>
+      <span class="version">v1.1.0</span>
+    </header>
+
+    <section class="status-section">
+      <div class="status-row">
+        <span class="label">ステータス</span>
+        <div class="toggle-wrapper">
+          <label class="toggle">
+            <input type="checkbox" id="enableToggle" checked>
+            <span class="slider"></span>
+          </label>
+          <span id="statusText" class="status-text on">ON</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-section">
+      <h2>設定</h2>
+      
+      <div class="setting-row">
+        <label for="maxItems">保持するチャット数</label>
+        <div class="input-group">
+          <input type="number" id="maxItems" min="20" max="500" value="120">
+          <span class="unit">件</span>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <label for="iconSize">アイコンサイズ</label>
+        <div class="input-group">
+          <input type="number" id="iconSize" min="8" max="48" value="16">
+          <span class="unit">px</span>
+        </div>
+      </div>
+
+      <div class="setting-row checkbox-row">
+        <label for="enableEmoteOptimization">サードパーティエモート最適化</label>
+        <input type="checkbox" id="enableEmoteOptimization" checked>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <h2>統計</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="deletedCount">0</span>
+          <span class="stat-label">削除済みDOM</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="optimizedImages">0</span>
+          <span class="stat-label">最適化画像</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="memorySaved">0</span>
+          <span class="stat-label">KB節約</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="currentSite">-</span>
+          <span class="stat-label">検出サイト</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <button id="resetStats" class="btn-secondary">統計リセット</button>
+      <button id="saveSettings" class="btn-primary">保存</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
